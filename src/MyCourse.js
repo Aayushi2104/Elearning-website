@@ -1,13 +1,10 @@
 import React from 'react';
-
-import { Link } from 'react-router-dom'; 
-
+import { Link } from 'react-router-dom';
 
 const MyCourse = () => {
   return (
     <div className="flex h-screen bg-gray-900 text-white">
       {/* Sidebar */}
-      
 
       {/* Main Content */}
       <div className="flex-1 p-8">
@@ -39,7 +36,7 @@ const MyCourse = () => {
           <div className="space-y-4">
             {/* Lesson Item */}
             {['Iterating', 'Filter', 'Lazy Iteration', 'Reduce Into'].map((lesson, index) => (
-              <div key={index} className="flex items-center justify-between bg-gray-700 p-4 rounded-lg">
+              <Link to={`/course/${lesson.toLowerCase()}`} key={index} className="flex items-center justify-between bg-gray-700 p-4 rounded-lg mb-4">
                 <div className="flex items-center space-x-4">
                   <div className="bg-teal-600 p-3 rounded-full">
                     <img src="/path/to/icon.png" alt="icon" className="w-6 h-6" /> {/* Placeholder for icon */}
@@ -52,7 +49,7 @@ const MyCourse = () => {
                 <div className="flex items-center space-x-2">
                   <span className="text-green-500">&#10003;</span> {/* Check icon */}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -80,7 +77,5 @@ const MyCourse = () => {
     </div>
   );
 };
-
-
 
 export default MyCourse;
