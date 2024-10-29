@@ -1,6 +1,4 @@
 import React from 'react';
-
-
 import { useParams } from 'react-router-dom';
 
 const courseData = {
@@ -13,7 +11,7 @@ const courseData = {
       { name: 'Iterating-documentation.pdf', size: '46.25 KB' },
       { name: 'Iterating-guidelines.pdf', size: '49.43 KB' },
     ],
-    videoSrc: '/path/to/iterating-video.mp4',
+    videoSrc: 'https://www.youtube.com/watch?v=9Snw7polcBU',
   },
   filter: {
     title: 'Filter',
@@ -24,7 +22,7 @@ const courseData = {
       { name: 'Filter-documentation.pdf', size: '46.25 KB' },
       { name: 'Filter-guidelines.pdf', size: '49.43 KB' },
     ],
-    videoSrc: '/path/to/filter-video.mp4',
+    videoSrc: 'https://www.youtube.com/watch?v=-mx_Kf3qKJY',
   },
   // Add more courses here...
 };
@@ -53,10 +51,19 @@ const CourseDetails = () => {
       <div className="flex flex-1 space-x-6">
         {/* Video Section */}
         <div className="flex-1 bg-gray-800 p-6 rounded-lg">
-          <video className="w-full h-64 rounded-lg mb-4" controls>
-            <source src={course.videoSrc} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          {course.videoSrc.includes('youtube.com') ? (
+            <iframe
+              className="w-full h-64 rounded-lg mb-4"
+              src={course.videoSrc.replace('watch?v=', 'embed/')}
+              title={course.title}
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <video className="w-full h-64 rounded-lg mb-4" controls>
+              <source src={course.videoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          )}
           <div>
             <h3 className="text-lg font-semibold mb-2">Materials</h3>
             <ul className="space-y-2 text-gray-400">
