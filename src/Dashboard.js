@@ -1,4 +1,3 @@
-// Dashboard.js
 import React, { useState } from 'react';
 import CourseCard from './CourseCard';
 
@@ -15,12 +14,12 @@ const courses = [
     title: "Advanced iOS Development", 
     price: "$99", 
     description: "Deep dive into advanced topics",
-    image: "https://media.geeksforgeeks.org/wp-content/uploads/20230617194030/Getting-Started-with-iOS-Development.webp" // Replace with a valid image URL
+    image: "https://media.geeksforgeeks.org/wp-content/uploads/20230617194030/Getting-Started-with-iOS-Development.webp"
   },
   // Add more courses as needed
 ];
 
-const Dashboard = () => {
+const Dashboard = ({ toggleWishlist, wishlist }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredCourses = courses.filter(course =>
@@ -42,7 +41,12 @@ const Dashboard = () => {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {filteredCourses.map(course => (
-          <CourseCard key={course.id} course={course} />
+          <CourseCard 
+            key={course.id} 
+            course={course} 
+            toggleWishlist={toggleWishlist} 
+            isWishlisted={wishlist.some((item) => item.id === course.id)} 
+          />
         ))}
       </div>
 

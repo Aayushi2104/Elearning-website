@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -32,6 +31,9 @@ const Sidebar = () => {
         </li>
         <li className="hover:bg-teal-600 px-3 py-2 rounded cursor-pointer">
           <Link to="/account">Account</Link>
+        </li>
+        <li className="hover:bg-teal-600 px-3 py-2 rounded cursor-pointer">
+          <Link to="/wishlist">Wishlist</Link>
         </li>
       </ul>
     </div>

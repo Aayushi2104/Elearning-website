@@ -1,7 +1,6 @@
-// CourseCard.js
 import React from 'react';
 
-const CourseCard = ({ course }) => {
+const CourseCard = ({ course, toggleWishlist, isWishlisted }) => {
   return (
     <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-center flex flex-col items-center transform transition-transform duration-300 hover:scale-105">
       {/* Thumbnail Image */}
@@ -23,7 +22,12 @@ const CourseCard = ({ course }) => {
       {/* Action Buttons */}
       <div className="flex gap-2 mt-4">
         <button className="bg-teal-500 text-white py-2 px-4 rounded hover:bg-teal-600">Buy</button>
-        <button className="bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-600">Add to Cart</button>
+        <button
+          className="bg-gray-700 py-2 px-4 rounded hover:bg-gray-600 text-white"
+          onClick={() => toggleWishlist(course)}
+        >
+          {isWishlisted ? 'Remove' : 'Add to Wishlist'}
+        </button>
       </div>
     </div>
   );

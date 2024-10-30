@@ -1,30 +1,32 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import Dashboard from './Dashboard'; // Simple component for Dashboard
-import MyCourse from './MyCourse'; // Simple component for My Courses
+import Dashboard from './Dashboard';
+import MyCourse from './MyCourse';
 import CourseDetails from './CourseDetails';
+import WishlistPage from './WishlistPage';
 
 const App = () => {
+  const [wishlist, setWishlist] = useState([]);
+
+  const toggleWishlist = (course) => {
+    if (wishlist.some((item) => item.id === course.id)) {
+      setWishlist(wishlist.filter((item) => item.id !== course.id));
+    } else {
+      setWishlist([...wishlist, course]);
+    }
+  };
+
   return (
     <Router>
       <div className="flex w-full h-screen bg-gray-900 text-white">
-        {/* Sidebar */}
         <Sidebar />
-
-        {/* Main Content */}
         <div className="flex-1 p-6 overflow-y-auto">
           <Routes>
-            {/* Main Routes */}
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard toggleWishlist={toggleWishlist} wishlist={wishlist} />} />
             <Route path="/my-course" element={<MyCourse />} />
-
-            {/* Dynamic Course Details Route with courseId parameter */}
+            <Route path="/wishlist" element={<WishlistPage wishlist={wishlist} />} />
             <Route path="/course/:courseId" element={<CourseDetails />} />
-            
-            {/* Optional route for other course-related components, if needed */}
-            {/* <Route path="/course-list" element={<CourseList />} /> */}
           </Routes>
         </div>
       </div>
