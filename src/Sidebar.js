@@ -1,3 +1,5 @@
+// src/Sidebar.js
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -18,7 +20,7 @@ const Sidebar = () => {
           <Link to="/explore">Explore</Link>
         </li>
         <li className="hover:bg-teal-600 px-3 py-2 rounded cursor-pointer">
-          <Link to="/messages">Messages</Link>
+          <Link to="/messages">Messages</Link> {/* Link to Chat */}
         </li>
         <li className="hover:bg-teal-600 px-3 py-2 rounded cursor-pointer">
           <Link to="/skill-tests">Skill Tests</Link>

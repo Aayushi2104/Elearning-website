@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
@@ -5,6 +6,8 @@ import Dashboard from './Dashboard';
 import MyCourse from './MyCourse';
 import CourseDetails from './CourseDetails';
 import WishlistPage from './WishlistPage';
+import QuizComponent from './QuizComponent';
+import Chat from './Chat'; 
 
 const App = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -25,8 +28,11 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Dashboard toggleWishlist={toggleWishlist} wishlist={wishlist} />} />
             <Route path="/my-course" element={<MyCourse />} />
+            <Route path="/course-details" element={<CourseDetails />} />
             <Route path="/wishlist" element={<WishlistPage wishlist={wishlist} />} />
             <Route path="/course/:courseId" element={<CourseDetails />} />
+            <Route path="/skill-tests" element={<QuizComponent />} /> 
+            <Route path="/messages" element={<Chat />} /> {/* Route for Chat */}{/* New Skill Tests route */}
           </Routes>
         </div>
       </div>
