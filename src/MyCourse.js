@@ -1,7 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import icon1 from './images/icon1.png'; // Importing unique icons
+import icon2 from './images/icon2.png';
+import icon3 from './images/icon3.png';
+import icon4 from './images/icon4.png';
 
 const MyCourse = () => {
+  // Array of lessons with unique icons
+  const lessons = [
+    { name: 'Iterating', icon: icon1 },
+    { name: 'Filter', icon: icon2 },
+    { name: 'Lazy Iteration', icon: icon3 },
+    { name: 'Reduce Into', icon: icon4 },
+  ];
+
   return (
     <div className="flex h-screen bg-gray-900 text-white">
       {/* Sidebar */}
@@ -35,14 +47,14 @@ const MyCourse = () => {
           <h3 className="text-xl font-semibold mb-4">Topic 1 - Understanding Swift Collections</h3>
           <div className="space-y-4">
             {/* Lesson Item */}
-            {['Iterating', 'Filter', 'Lazy Iteration', 'Reduce Into'].map((lesson, index) => (
-              <Link to={`/course/${lesson.toLowerCase()}`} key={index} className="flex items-center justify-between bg-gray-700 p-4 rounded-lg mb-4">
+            {lessons.map((lesson, index) => (
+              <Link to={`/course/${lesson.name.toLowerCase()}`} key={index} className="flex items-center justify-between bg-gray-700 p-4 rounded-lg mb-4">
                 <div className="flex items-center space-x-4">
                   <div className="bg-teal-600 p-3 rounded-full">
-                    <img src="/path/to/icon.png" alt="icon" className="w-6 h-6" /> {/* Placeholder for icon */}
+                    <img src={lesson.icon} alt="icon" className="w-6 h-6" /> {/* Using unique icon */}
                   </div>
                   <div>
-                    <h4 className="text-lg">{lesson}</h4>
+                    <h4 className="text-lg">{lesson.name}</h4>
                     <p className="text-sm text-gray-400">08:20 · 2 tasks</p>
                   </div>
                 </div>

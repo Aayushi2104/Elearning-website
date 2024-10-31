@@ -8,6 +8,8 @@ import CourseDetails from './CourseDetails';
 import WishlistPage from './WishlistPage';
 import QuizComponent from './QuizComponent';
 import Chat from './Chat'; 
+import AccountPage from './AccountPage';
+import Certificate from './Certificate'; // Import the AccountPage component
 
 const App = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -32,7 +34,10 @@ const App = () => {
             <Route path="/wishlist" element={<WishlistPage wishlist={wishlist} />} />
             <Route path="/course/:courseId" element={<CourseDetails />} />
             <Route path="/skill-tests" element={<QuizComponent />} /> 
-            <Route path="/messages" element={<Chat />} /> {/* Route for Chat */}{/* New Skill Tests route */}
+            <Route path="/messages" element={<Chat />} /> 
+            <Route path="/certificates" element={<Certificate />} />{/* Route for Chat */}
+            <Route path="/account" element={<AccountPage />} /> 
+            {/* New Account Page Route */}
           </Routes>
         </div>
       </div>
