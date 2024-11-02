@@ -1,34 +1,30 @@
 import React from 'react';
 
-const CourseCard = ({ course, toggleWishlist, isWishlisted }) => {
+const CourseCard = ({ course, toggleWishlist, isWishlisted, purchaseCourse, showButtons }) => {
   return (
-    <div className="bg-gray-800 p-4 rounded-lg shadow-lg text-center flex flex-col items-center transform transition-transform duration-300 hover:scale-105">
-      {/* Thumbnail Image */}
-      <img
-        src={course.image}
-        alt={`${course.title} thumbnail`}
-        className="w-full h-40 object-cover rounded-md mb-4"
-      />
+    <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
+      <img src={course.image} alt={course.title} className="w-full h-40 object-cover rounded" />
+      <h2 className="text-xl font-semibold mt-4">{course.title}</h2>
+      <p className="text-gray-400 mt-2">{course.description}</p>
+      <p className="text-teal-400 mt-2">{course.price}</p>
 
-      {/* Course Title */}
-      <h2 className="text-xl font-bold mb-2">{course.title}</h2>
-
-      {/* Course Description */}
-      <p className="text-gray-300 mb-4">{course.description}</p>
-
-      {/* Course Price */}
-      <span className="text-teal-400 font-semibold mb-4">{course.price}</span>
-
-      {/* Action Buttons */}
-      <div className="flex gap-2 mt-4">
-        <button className="bg-teal-500 text-white py-2 px-4 rounded hover:bg-teal-600">Buy</button>
-        <button
-          className="bg-gray-700 py-2 px-4 rounded hover:bg-gray-600 text-white"
-          onClick={() => toggleWishlist(course)}
-        >
-          {isWishlisted ? 'Remove' : 'Add to Wishlist'}
-        </button>
-      </div>
+      {/* Conditionally render buttons based on showButtons prop */}
+      {showButtons && (
+        <div className="flex gap-2 mt-4">
+          <button 
+            className="mt-2 p-2 bg-teal-600 rounded text-white"
+            onClick={() => purchaseCourse(course)}  // Call purchaseCourse when clicked
+          >
+            Buy
+          </button>
+          <button 
+            className={`mt-2 p-2 ${isWishlisted ? 'bg-red-600' : 'bg-gray-600'} rounded text-white`}
+            onClick={() => toggleWishlist(course)} // Call toggleWishlist when clicked
+          >
+            {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

@@ -24,6 +24,9 @@ const Sidebar = () => {
         <li className="hover:bg-teal-700 px-3 py-2 rounded cursor-pointer">
           <Link to="/certificates">Certificates</Link>
         </li>
+        <li className="hover:bg-teal-600 px-3 py-2 rounded cursor-pointer">
+          <Link to="/purchased-courses">Purchased Courses</Link>
+        </li>
 
         <li className="hover:bg-teal-600 px-3 py-2 rounded cursor-pointer">
   <Link to="/account">Account</Link>
