@@ -5,19 +5,66 @@ const courses = [
   {
     id: 1,
     title: "Swift for Beginners",
-    price: "$49",
+    price: "Rs549",
     description: "Introductory Swift course",
     image: "https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2152605297/settings_images/2df23d0-63-8161-fd-bffd5ec17c0_Swift_Basics_Thumbnails_Keynote.001.jpeg"
   },
   {
     id: 2,
     title: "Advanced iOS Development",
-    price: "$99",
+    price: "Rs699",
     description: "Deep dive into advanced topics",
     image: "https://media.geeksforgeeks.org/wp-content/uploads/20230617194030/Getting-Started-with-iOS-Development.webp"
   },
-  // Add more courses here as needed
+  {
+  id: 3,
+    title: "JavaScript Essentials",
+    price: "Rs559",
+    description: "Fundamental JavaScript concepts",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+  },
+    {
+      id: 4,
+      title: "ReactJS for Beginners",
+      price: "Rs579",
+      description: "Learn to build interactive UIs",
+      image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+    },
+    {
+      id: 5,
+      title: "Data Structures in Java",
+      price: "Rs489",
+      description: "Master essential data structures in Java",
+      image: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+    },
+  
+  {
+    id: 6,
+    title: "Python for Data Science",
+    price: "Rs619",
+    description: "Use Python for data analysis and ML",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+  },
+    {
+      id: 7,
+      title: "Web Development Bootcamp",
+      price: "Rs529",
+      description: "Full-stack development essentials",
+      image: "https://cdn-icons-png.flaticon.com/512/919/919827.png"
+    },
+    {
+      id: 8,
+      title: "Machine Learning Basics",
+      price: "Rs499",
+      description: "Introduction to machine learning concepts",
+      image: "https://cdn-icons-png.flaticon.com/512/4712/4712106.png"
+    }
+  
+  
 ];
+
+  // Add more courses here as needed
+
 
 const Dashboard = ({ toggleWishlist, wishlist, purchasedCourses, purchaseCourse }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,7 +77,7 @@ const Dashboard = ({ toggleWishlist, wishlist, purchasedCourses, purchaseCourse 
 
   const handlePurchaseCourse = (course) => {
     purchaseCourse(course); // Call the purchase function passed from the parent
-    setSuccessMessage(`Course "${course.title}" successfully purchased!`);
+    setSuccessMessage(`Course "Rs{course.title}" successfully purchased!`);
     setTimeout(() => setSuccessMessage(""), 3000); // Clear message after 3 seconds
   };
 

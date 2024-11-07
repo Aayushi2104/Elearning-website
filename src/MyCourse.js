@@ -108,20 +108,23 @@
 
 // export default MyCourse;
 
+// 
+
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import icon1 from './images/icon1.png'; // Importing unique icons
 import icon2 from './images/icon2.png';
 import icon3 from './images/icon3.png';
-import icon4 from './images/icon4.png';
+// import icon4 from './images/icon4.png';
 
 const MyCourse = () => {
   // Array of lessons with unique icons
   const lessons = [
     { name: 'Iterating', icon: icon1 },
     { name: 'Filter', icon: icon2 },
-    { name: 'Lazy Iteration', icon: icon3 },
-    { name: 'Reduce Into', icon: icon4 },
+    { name: 'LazyIteration', icon: icon3 },
+    // { name: 'ReduceInto', icon: icon4 },
   ];
 
   return (

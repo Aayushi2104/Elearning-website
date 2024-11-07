@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Sidebar = () => {
   return (
     <div className="w-64 h-full bg-gray-800 p-4">
-      <div className="text-2xl font-bold text-teal-400 mb-6">Core Developer</div>
+      <div className="text-2xl font-bold text-teal-400 mb-6">Learnify</div>
       <ul className="space-y-4">
         <li className="hover:bg-teal-600 px-3 py-2 rounded cursor-pointer">
           <Link to="/">Dashboard</Link>
